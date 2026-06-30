@@ -39,6 +39,9 @@ socket.on('connect', () => {
 
 // Load document data from server
 socket.on('load-document', (documentData) => {
+  if (!documentData || Object.keys(documentData).length === 0) {
+    documentData = { ops: [{ insert: '\n' }] };
+  }
   quill.setContents(documentData);
   quill.enable();
   

@@ -8,17 +8,17 @@ const ensureAuth = (req, res, next) => {
   res.status(401).json({ message: 'Not authenticated' });
 };
 
-// Create a new document
-router.post('/', ensureAuth, async (req, res) => {
+// Create new document
+router.post('/', isAuthenticated, async (req, res) => {
   try {
-    const doc = new Document({
+    const newDoc = new Document({
       title: req.body.title || 'Untitled Document',
-      owner: req.user._id,
-      content: '' // Start empty
+      data: { ops: [{ insert: '\n' }] },
+      owner: req.user._id
     });
-    await doc.save();
-    res.status(201).json(doc);
-  } catch (err) {
+    await newDoc.save();
+    res.status(201).json(newDoc);
+  } catch (error) {
     res.status(500).json({ message: 'Error creating document' });
   }
 });
