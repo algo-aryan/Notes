@@ -1,46 +1,68 @@
-# Collaborative Notes App
+# Collaborative Notes
 
-A real-time collaborative notes application designed as a Google Docs clone. Features include live text editing via WebSockets, Google & Email authentication, and a sleek user interface.
+A real-time collaborative document editing application using Node.js, Express, MongoDB, Socket.IO, and Quill.js.
 
 ## Features
-- **Real-Time Collaboration**: See changes from other users instantly without refreshing.
-- **Rich Text Editing**: Bold, italic, headings, lists, and more powered by Quill.js.
-- **Authentication**: Secure login using Email/Password or Google OAuth (Passport.js).
-- **Auto-Saving**: Documents automatically save to the database while you type.
 
-## Tech Stack
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript, Quill.js
-- **Backend**: Node.js, Express, Socket.IO, Passport.js
-- **Database**: MongoDB (Atlas)
+- User Authentication (Local and Google OAuth2)
+- Create, view, and edit documents
+- Real-time collaborative editing using WebSockets
+- Automatic document saving
+- Cross-origin support for separate frontend (Vercel) and backend (Render) deployments
 
-## Setup Instructions
+## Project Structure
+
+```
+├── backend/
+│   ├── config/
+│   │   └── passport.js      # Passport authentication strategies
+│   ├── models/
+│   │   ├── Document.js      # Mongoose schema for documents
+│   │   └── User.js          # Mongoose schema for users
+│   ├── routes/
+│   │   ├── authRoutes.js    # Authentication API endpoints
+│   │   └── docRoutes.js     # Document API endpoints
+│   ├── .env                 # Environment variables
+│   └── server.js            # Express & Socket.IO server entry point
+├── frontend/
+│   ├── css/
+│   │   └── styles.css       # Vanilla CSS styling
+│   ├── js/
+│   │   ├── auth.js          # Client-side authentication logic
+│   │   ├── config.js        # Global configuration (e.g., API URL)
+│   │   ├── dashboard.js     # Client-side document list logic
+│   │   └── editor.js        # Client-side Quill editor & Socket.IO logic
+│   ├── dashboard.html       # Document list interface
+│   ├── editor.html          # Document editing interface
+│   └── index.html           # Login and Registration interface
+├── .gitignore               # Git ignored files
+├── package.json             # Node.js dependencies and scripts
+└── vercel.json              # Vercel deployment configuration
+```
+
+## Setup and Installation
 
 ### Prerequisites
-- Node.js installed
-- A MongoDB Atlas connection URI
-- Google Client ID and Secret (for Google Auth)
+- Node.js (v14 or higher recommended)
+- MongoDB account (e.g., MongoDB Atlas)
+- Google Cloud account (for OAuth)
 
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/algo-aryan/Notes.git
-   cd Notes
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Set up environment variables:
-   Create a `.env` file in the `backend` directory and add:
-   ```
-   PORT=5000
-   MONGODB_URI=your_mongodb_atlas_uri
-   SESSION_SECRET=your_secret
-   GOOGLE_CLIENT_ID=your_google_id
-   GOOGLE_CLIENT_SECRET=your_google_secret
-   ```
-4. Start the server:
-   ```bash
-   npm start
-   ```
-5. Open your browser and navigate to `http://localhost:5000/index.html`
+### Backend Configuration
+1. Navigate to the project root directory.
+2. Run `npm install` to install dependencies.
+3. Update `backend/.env` with your actual MongoDB connection string and Google OAuth credentials.
+4. Run `npm start` to start the backend server. The server will run on port 5000 by default.
+
+### Frontend Configuration
+1. Open `frontend/js/config.js`.
+2. Update the `BACKEND_URL` variable to point to your backend server (e.g., `http://localhost:5000` for local development).
+3. Open `frontend/index.html` in your web browser or serve it using a local static file server.
+
+## Deployment
+
+- **Backend**: Can be deployed to services like Render. Ensure you set the environment variables in your deployment dashboard.
+- **Frontend**: Can be deployed to static hosting services like Vercel. Ensure `config.js` is updated to point to the production backend URL before deploying.
+
+## License
+
+ISC License
