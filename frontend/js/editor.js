@@ -37,6 +37,11 @@ socket.on('connect', () => {
   socket.emit('get-document', documentId);
 });
 
+socket.on('connect_error', (err) => {
+  statusEl.textContent = 'Error: ' + err.message;
+  console.error('Socket connect error:', err);
+});
+
 // Load document data from server
 socket.on('load-document', (documentData) => {
   if (!documentData || Object.keys(documentData).length === 0) {
