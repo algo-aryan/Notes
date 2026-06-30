@@ -25,6 +25,8 @@ const io = new Server(server, {
 });
 
 // Middleware setup
+app.set('trust proxy', 1); // Trust Render proxy for secure cookies
+
 app.use(cors({
   origin: true,
   credentials: true
@@ -35,6 +37,11 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'secret',
   resave: false,
   saveUninitialized: false,
+  cookie: {
+    secure: true, // Required for cross-domain cookies over HTTPS
+    sameSite: 'none', // Required to allow cookies between Vercel and Render
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
