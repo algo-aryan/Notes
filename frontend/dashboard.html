@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes - Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="dashboard-header">
+    <h2 style="margin: 0;">My Documents</h2>
+    <div>
+      <span id="user-name" style="margin-right: 1rem; color: var(--text-muted);"></span>
+      <button class="btn-primary" id="new-doc-btn" style="width: auto; padding: 0.5rem 1rem;">+ New Document</button>
+      <button id="logout-btn" style="margin-left: 1rem; background: transparent; border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Logout</button>
+    </div>
+  </div>
+
+  <div class="docs-grid" id="docs-grid">
+    <!-- Documents will be dynamically inserted here -->
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

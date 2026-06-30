@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes - Editor</title>
+  <!-- Include Quill stylesheet -->
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="editor-header">
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <a href="dashboard.html" style="text-decoration: none; color: var(--text-muted); font-size: 1.5rem;">&larr;</a>
+      <input type="text" id="doc-title" value="Loading...">
+    </div>
+    <div>
+      <span id="status" style="color: var(--text-muted); font-size: 0.875rem; margin-right: 1rem;">Connecting...</span>
+      <button class="btn-primary" id="save-btn" style="width: auto; padding: 0.5rem 1rem;">Save Now</button>
+    </div>
+  </div>
+
+  <div id="editor-container">
+    <!-- Quill editor will be attached here -->
+  </div>
+
+  <!-- Include Socket.IO client and Quill library -->
+  <script src="js/config.js"></script>
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="js/editor.js"></script>
+</body>
+</html>

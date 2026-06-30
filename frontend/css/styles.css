@@ -1,0 +1,184 @@
+/* Premium Light Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --primary-color: #4F46E5;
+  --primary-hover: #4338CA;
+  --bg-color: #F9FAFB;
+  --card-bg: #FFFFFF;
+  --text-main: #111827;
+  --text-muted: #6B7280;
+  --border-color: #E5E7EB;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Auth Container */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 2rem;
+}
+
+.auth-card {
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-top: 0;
+  font-weight: 600;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-muted);
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  width: 100%;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.divider {
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+}
+
+.divider::before, .divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.divider span {
+  padding: 0 1rem;
+  font-size: 0.875rem;
+}
+
+.btn-google {
+  width: 100%;
+  background: white;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+
+.btn-google:hover {
+  background: #f3f4f6;
+}
+
+/* Dashboard Container */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.docs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.doc-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.doc-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Editor Container */
+#editor-container {
+  flex: 1;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.editor-header input {
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: var(--text-main);
+}
