@@ -28,7 +28,9 @@ quill.disable();
 quill.setText('Loading document...');
 
 // Connect to Socket.IO Server
-const socket = io(BACKEND_URL);
+const socket = io(BACKEND_URL, {
+  withCredentials: true
+});
 
 socket.on('connect', () => {
   statusEl.textContent = 'Connected';
