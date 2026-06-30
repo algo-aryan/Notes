@@ -9,7 +9,7 @@ const ensureAuth = (req, res, next) => {
 };
 
 // Create new document
-router.post('/', isAuthenticated, async (req, res) => {
+router.post('/', ensureAuth, async (req, res) => {
   try {
     const newDoc = new Document({
       title: req.body.title || 'Untitled Document',
