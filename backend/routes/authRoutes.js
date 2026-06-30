@@ -53,9 +53,9 @@ router.post('/logout', (req, res, next) => {
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 router.get('/google/callback', passport.authenticate('google', {
-  failureRedirect: '/index.html'
+  failureRedirect: 'https://notes-teal-ten.vercel.app/index.html'
 }), (req, res) => {
-  res.redirect('/dashboard.html');
+  res.redirect('https://notes-teal-ten.vercel.app/dashboard.html');
 });
 
 module.exports = router;
